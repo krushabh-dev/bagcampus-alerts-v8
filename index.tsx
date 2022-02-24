@@ -1,28 +1,12 @@
 import React, { Component } from 'react';
-import { render } from 'react-dom';
-import NavBar from './Components/Navbar/NavBar.jsx';
-import './style.css';
+import * as React from 'react';
+import ReactDOM from 'react-dom';
+import { StyledEngineProvider } from '@mui/material/styles';
+import NavBar from './Components/Navbar/NavBar.js';
 
-interface AppProps {}
-interface AppState {
-  name: string;
-}
-
-class App extends Component<AppProps, AppState> {
-  constructor(props) {
-    super(props);
-    this.state = {
-      name: 'React',
-    };
-  }
-
-  render() {
-    return (
-      <>
-        <NavBar />
-      </>
-    );
-  }
-}
-
-render(<App />, document.getElementById('root'));
+ReactDOM.render(
+  <StyledEngineProvider injectFirst>
+    <NavBar />
+  </StyledEngineProvider>,
+  document.querySelector('#root')
+);
